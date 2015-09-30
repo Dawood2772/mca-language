@@ -1,0 +1,114 @@
+---
+layout: page
+title: "Types"
+category: doc
+date: 2015-09-30 18:33:37
+---
+
+"Types" are the type of value in a variable or expression, such as a number, piece of text, command, etc. MCA currently has five types of values that can be used. These are:
+
+ - **Number** - a numerical value
+ - **String** - a piece of arbitrarily-sized text
+ - **Command** - a Minecraft command-formatted command with arguments
+ - **Hashmap** - an array-like structure for storing multiple values
+
+Additionally, the symbolic null value can be used to represent no value.
+
+## Types
+
+### Number
+
+An immutable [double-precision 64-bit binary format IEEE 754 value](http://en.wikipedia.org/wiki/Double_precision_floating-point_format). There are also two symbolic values for numbers: `NaN` and `Infinity`.
+
+MCA provides various comparison operators to deal with numbers, as well as binary operators.
+
+### String
+
+Strings are a list of characters, put together to form a piece of text. Strings are immutable, meaning their value cannot be changed, however they can be 'cloned' with a change. String values should be surrounded with double or single quotes.
+
+### Command
+
+A Minecraft-formatted command. They are composed of a forward slash, followed by the command name, followed by each argument separated with a space. Values can be 'injected' into the command with curly braces. For example, the command `/say {message}` with the variable `message` equal to "hi", becomes `/say hi`.
+
+### Hashmap
+
+A hashmap is a set of key/value pairs, where keys can either be numbers or strings, and pairs can be any type of variable. Typically, hashmaps are used for arrays or property pairs, and so the MCA core library provides various useful manipulation functions.
+
+Hashmaps are defined with square brackets, keys and values are separated with colons, and each pair is separated with a comma. For example,
+
+```
+[
+	message1: "Hello",
+	message2: "world!"
+];
+
+The key name and colon can be omitted, resulting in the key being auto-set to a numerical index, starting with 0. Trailing commas are allowed.
+```
+
+### Block
+
+Blocks are a group of statements. For more information, see [the Block reference page]({{site.baseurl}}/2015-09-30-blocks).
+
+### null
+
+`null` is a symbolic value that represents 'no value'. It has no special properties.
+
+### Booleans
+
+In MCA, booleans are a special case. Both the `true` and `false` keywords are supported, however there is no `boolean` type. Instead, booleans are represented as numbers. A truthy number is represented by a non-zero number, and a falsey number is zero. The `true` and `false` keywords therefore evaluate to 1 and 0, respectively.
+
+## Casting
+
+'Casting' is the process of converting a value in one type, to a value in another type. Currently, MCA does not support explicit castine (i.e saying 'cast this string to a number'), however various operations automatically cast values.
+
+### Booleans
+
+While booleans are actually represented by numbers, operations that use booleans follow slightly different rules to cast _to_ a boolean. All types can be casted to booleans. Booleans follow the same rules as numbers for casting _from_ a boolean.
+
+### From string
+
+Strings can be casted to numbers, hashmaps and booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a string to a number will parse the number in standard form, until a non-number value is encountered. The result will be `NaN` if conversion fails.
+
+Converting a string to a hashmap will create an array where each item corresponds to a character in the string.
+
+Converting a string to a boolean will result in 1 if the string has a length, otherwise 0.
+
+### From number
+
+Numbers can only be cast to strings and booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a number to a string will result in the number's base-10 value in string form.
+
+Converting a number to a boolean will result in 1 if the number is not zero, otherwise 0.
+
+### From command
+
+Commands can only be cast to strings and booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a command to a string will result in a string containing the raw value of the command (i.e `/[command name] [command arguments]`)
+
+Converting a command to a boolean will always result in a 1.
+
+### From hashmap
+
+Hashmaps can only be cast to strings and booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a hashmap to a string will result in a string containing the [JSON form](https://en.wikipedia.org/wiki/JSON) of the hashmap.
+
+Converting a hashmap to a boolean will result in a 1 if the hashmap has any items, otherwise 0.
+
+### From block
+
+Blocks can only be cast to booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a block to a boolean will always result in a 1.
+
+### From null
+
+`null` can only be cast to strings and booleans. Attempting to cast to anything else will result in an error being fired.
+
+Converting a `null` to a string will result in a string with the value of `"null"`.
+
+Converting a `null` to a boolean will always result in 0.

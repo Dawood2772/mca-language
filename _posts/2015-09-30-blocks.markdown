@@ -1,0 +1,119 @@
+---
+layout: page
+title: "Blocks"
+category: doc
+date: 2015-09-30 17:59:06
+---
+
+A 'block' is an isolated section of code. Typically, blocks are used when defining [macros]({{site.baseurl}}/2015-09-30-macros), to provide a function-like system. Blocks can also be defined "anonymously", however.
+
+There are two types of blocks: "named" and "anonymous". Named blocks are blocks that belong to a macro - that is, they have a name. Anonymous blocks are blocks that are immediately created and executed, or are assigned to a variable.
+
+## Structure
+
+To define a block, use the following structure:
+
+```
+{
+	code
+}
+// or
+() {
+	code
+}
+// or
+(parameters) {
+	code
+}
+```
+
+Where `code` is the code to be executed when the block is run, and `parameters` are a list of parameter variables.
+
+## Calling a block
+
+Blocks can be 'called', that is, their contents are executed, with a pair of brackets. For example:
+
+```
+my_block();
+```
+
+Where `my_block` is a variable (or macro) containing a block, will execute the block.
+
+## Parameters
+
+Blocks can optionally have a set of 'parameters' provided. Parameters are a list of variable names. When the block is called, values can be provided, which will be 'placed' into the variables defined in the parameter list.
+
+For example:
+
+**Code:**
+
+```
+my_block = (a, b) {
+	/say {a} then {b};
+};
+
+my_block("hi", "bye");
+```
+
+**Becomes:**
+
+```
+/say hi then bye
+```
+
+### Pass-by-reference vs pass-by-value
+
+When dealing with parameters, it is important to understand the differences between pass-by-reference and pass-by-value.
+
+The different has to do with how values are passed into the block via parameters. Immutable types (such as strings and numbers) are always pass-by-value. Mutable types (such as maps) are always pass-by-reference.
+
+When passing a pass-by-value parameter into a block, it will effectively be 'copied' for the block. This means that modifying the variable in the block, does not change the value outside of the block. When passing a pass-by-reference parameter into a block, however, changing properties on that variable will change the properties in the value outside of the block.
+
+It is important to remember, however, that even for pass-by-reference variables, simply changing the value of the variable will not change the value outside of the block. For an example, see the following code:
+
+**Code:**
+
+```
+my_block = (a) {
+	a = ["hi"];
+};
+
+some_var = ["bye"];
+my_block(some_var);
+/say {some_var[0]};
+```
+
+**Becomes:**
+
+```
+/say bye
+```
+
+The exception to this rule is when using `out` parameters.
+
+### `out` parameters
+
+Parameters can be flagged as being `out` parameters by writing `out` before the name of the parameter in the block definition, and before the value in the call. When both parties (i.e the block definition and the caller) have the `out` flag, and a variable is passed as the value, it will become "two-way binded". This means that modifying the value of the variable inside the block, will modify the value outside. This can be used, for example, to have multiple return values. If only one of the parties has the `out` flag, an error will be fired.
+
+Following is an example of using the `out` parameter:
+
+**Code:**
+
+```
+my_block = (text_to_set, out val) {
+	val = "Text: " + text_to_set;
+}
+
+my_block("hi", some_var);
+/say {some_var};
+```
+
+**Becomes:**
+
+```
+/say Text: hi
+```
+
+## Scope
+
+Blocks are always "scoped" - this means variables inside the block will not be able to access variables outside of the block, except for 'global variables'. For more information on scopes, see the [Scope reference page]({{site.baseurl}}/2015-09-30-scopes).

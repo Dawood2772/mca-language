@@ -1,0 +1,12 @@
+---
+layout: page
+title: "Scopes"
+category: doc
+date: 2015-09-30 18:26:11
+---
+
+Scopes determine which variables are currently accessible. Scopes 'isolate' a part of code - code in a scope is only able to access variables defined in that scope, or variables defined in the global (root) scope. Currently, blocks are the only scoped statements.
+
+Using the analogy that variables are boxes that store their value, scopes can be thought of as shelves. When a variable is accessed, MCA will look at the current scope (the closest shelf) to see if it can find the variable. If not, it will look at the global scope (the furthest shelf). If it cannot find the variable in either of these scopes, an error will be triggered.
+
+When setting a variable to a value, MCA will first find if the variable is defined in any of the accessible scopes (i.e if it is on the closest or furthest shelf). If so, it will set the value on that shelf. If not, it will create a new box with the variable name as the label, and place it on the current shelf (i.e, it will create the variable in the current scope).
