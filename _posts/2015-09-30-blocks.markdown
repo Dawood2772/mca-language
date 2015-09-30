@@ -5,7 +5,7 @@ category: doc
 date: 2015-09-30 17:59:06
 ---
 
-A 'block' is an isolated section of code. Typically, blocks are used when defining [macros]({{site.baseurl}}/2015-09-30-macros), to provide a function-like system. Blocks can also be defined "anonymously", however.
+A 'block' is an isolated section of code. Typically, blocks are used when defining [macros]({{site.baseurl}}/doc/macros.html), to provide a function-like system. Blocks can also be defined "anonymously", however.
 
 There are two types of blocks: "named" and "anonymous". Named blocks are blocks that belong to a macro - that is, they have a name. Anonymous blocks are blocks that are immediately created and executed, or are assigned to a variable.
 
@@ -116,4 +116,4 @@ my_block("hi", some_var);
 
 ## Scope
 
-Blocks are always "scoped" - this means variables inside the block will not be able to access variables outside of the block, except for 'global variables'. For more information on scopes, see the [Scope reference page]({{site.baseurl}}/2015-09-30-scopes).
+Blocks are always "scoped" - this means variables inside the block will not be able to access variables outside of the block, except for 'global variables'. For more information on scopes, see the [Scope reference page]({{site.baseurl}}/doc/scopes.html).

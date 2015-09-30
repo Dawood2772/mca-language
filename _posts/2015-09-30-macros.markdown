@@ -41,11 +41,11 @@ SAY_SOMETHING("hi");
 
 ## Scope and Parameters
 
-When a macro is called, a new scope is created for the macro (for more info on scopes, see [the Scope reference page]({{site.baseurl}}/2015-09-30-scopes)). As a result, the macro cannot access variables defined outside of itself, apart from variables defined in the global scope. The exception to this is _parameters_.
+When a macro is called, a new scope is created for the macro (for more info on scopes, see [the Scope reference page]({{site.baseurl}}/doc/scopes.html)). As a result, the macro cannot access variables defined outside of itself, apart from variables defined in the global scope. The exception to this is _parameters_.
 
-Parameters are provided in the same way as [Blocks]({{site.baseurl}}/2015-09-30-blocks) - a comma-separated list of variable names. When the macro is called, the values provided in the brackets will be placed in the variable names provided, in the macros scope. When dealing with parameters, it is important to understand the difference between pass-by-value and pass-by-reference variables. This is covered in more detail in the [Block]({{site.baseurl}}/2015-09-30-blocks) reference page.
+Parameters are provided in the same way as [Blocks]({{site.baseurl}}/doc/blocks.html) - a comma-separated list of variable names. When the macro is called, the values provided in the brackets will be placed in the variable names provided, in the macros scope. When dealing with parameters, it is important to understand the difference between pass-by-value and pass-by-reference variables. This is covered in more detail in the [Block]({{site.baseurl}}/doc/blocks.html) reference page.
 
-_Note that MCA does not support closures_ unlike languages such as Javascript. Instead, only variables in the global scope, and variables in the current scope, are accessible. For more information, see [the Scope reference page]({{site.baseurl}}/2015-09-30-scopes).
+_Note that MCA does not support closures_ unlike languages such as Javascript. Instead, only variables in the global scope, and variables in the current scope, are accessible. For more information, see [the Scope reference page]({{site.baseurl}}/doc/scopes.html).
 
 ## Overloads
 

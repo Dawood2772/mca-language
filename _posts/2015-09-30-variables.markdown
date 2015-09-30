@@ -59,4 +59,4 @@ something = null;
 
 ## Scope
 
-Variables are only available in the block that they are defined in. As a result, variables defined inside a block cannot be accessed from outside of the block. For more information, see [the Scope reference page]({{site.baseurl}}/2015-09-30-scopes).
+Variables are only available in the block that they are defined in. As a result, variables defined inside a block cannot be accessed from outside of the block. For more information, see [the Scope reference page]({{site.baseurl}}/docs/scopes.html).

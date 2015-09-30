@@ -29,7 +29,7 @@ if (condition) {
 }
 ```
 
-Where `condition` is an expression, and `code` is the code to be run if the condition evaluates to a truthy value (for more info on this, see the [Types reference page]({{site.baseurl}}/2015-09-30-scopes)).
+Where `condition` is an expression, and `code` is the code to be run if the condition evaluates to a truthy value (for more info on this, see the [Types reference page]({{site.baseurl}}/doc/scopes.html)).
 
 Optionally, an `else` block can be added to the end. This block uses the following structure:
 
@@ -68,7 +68,7 @@ while (condition) {
 }
 ```
 
-Where `condition` is an expression, and `code` is the code to be run repedetively. `code` will be run _while_ `condition` evaluates to a truthy value (for more info on this, see the [Types reference page]({{site.baseurl}}/2015-09-30-scopes)).
+Where `condition` is an expression, and `code` is the code to be run repedetively. `code` will be run _while_ `condition` evaluates to a truthy value (for more info on this, see the [Types reference page]({{site.baseurl}}/doc/scopes.html)).
 
 The `while` statement always runs the condition _before_ the body. This means that the body might never be executed if the condition evaluates to `false` the first time.
 

@@ -47,7 +47,7 @@ The key name and colon can be omitted, resulting in the key being auto-set to a 
 
 ### Block
 
-Blocks are a group of statements. For more information, see [the Block reference page]({{site.baseurl}}/2015-09-30-blocks).
+Blocks are a group of statements. For more information, see [the Block reference page]({{site.baseurl}}/doc/blocks.html).
 
 ### null
 

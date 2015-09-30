@@ -70,7 +70,7 @@ All of the above examples only allow us to define an "expression" (e.g. addition
 /say And the next number is 3
 ```
 
-For more info on macros, see [the Macro reference page]({{site.baseurl}}/2015-09-30-macros).
+For more info on macros, see [the Macro reference page]({{site.baseurl}}/doc/macros.html).
 
 ## Control statements
 
@@ -82,4 +82,4 @@ MCA has 3 control statements:
  - **`while/dowhile`** - executes code continuously while a condition is true
  - **`switch`** - executes different code based on different values
 
-For more info on control statements, see the [Control statements reference page]({{site.baseurl}}/2015-09-30-control-statements).
+For more info on control statements, see the [Control statements reference page]({{site.baseurl}}/doc/control-statements.html).
