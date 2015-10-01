@@ -5,7 +5,7 @@ category: tut
 date: 2015-09-30 17:09:59
 ---
 
-MCA is a macro language. This means that instead of writing code that will run at _runtime_ (like normal programming languages), MCA code will run at _compile time_, and be used to generate the runtime code (i.e MCIL). MCA also provides a standard library, which includes functions for string operations, mathematical operations, error handling, and some advanced code generation.
+MCA is a macro language. This means that instead of writing code that will run at _runtime_ (like normal programming languages), MCA code will run at _compile time_, and be used to generate the runtime code (i.e [MCIL]({{site.baseurl}}/doc/mcil.html)). MCA also provides a standard library, which includes functions for string operations, mathematical operations, error handling, and some advanced code generation.
 
 The syntax is primarily C-based, however it also borrows from Assembly, and of course the Minecraft command syntax.
 
