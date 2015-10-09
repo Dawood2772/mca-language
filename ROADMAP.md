@@ -15,3 +15,6 @@
  - [ ] Explicit casting (e.g. `(string)0.12`)
  - [ ] Some way to get compile arguments (i.e argv)
  - [ ] Try/catch support
+ - [ ] Named parameters (as a result, supporting multiple overloaded macros with the same number of parameters, but different argument names)
+   - If two macros have the same number of parameters and not enough names are provided to decide which to use, throw an `ArityError` or similar
+ - [ ] Multiple return values
