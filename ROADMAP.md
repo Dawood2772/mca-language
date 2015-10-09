@@ -8,6 +8,9 @@
 ## Language
  - [x] Documentation
    - Initial version complete, but not comprehensive yet
+ - [x] Closures
+ - [ ] Make blocks in control statements create scopes (similar to `let` in JS)
+ - [ ] Add a `var` keyword
  - [ ] Branchable blocks and macros (i.e MCIL branching support)
  - [ ] `@` player references in expressions, supporting parameters
    - Supports binary operations (e.g. `@p | @r` would select the nearest player as well as a random player, `@p & @r` would select the nearest player if they are the random player)
